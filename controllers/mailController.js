@@ -311,7 +311,7 @@ exports.comment_mail = (req, res) => {
   );
 
   const msg = {
-    to: "palaskarap15@gmail.com",
+    to: email,
     from: process.env.MAIL_FROM,
     subject: `${author} commented on your post in ${forumName}`,
     html,
