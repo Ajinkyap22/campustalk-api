@@ -5,7 +5,6 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const cors = require("cors");
 const compression = require("compression");
-// const helmet = require("helmet");
 require("./config/passport");
 
 const usersRouter = require("./routes/users");
@@ -20,7 +19,7 @@ const mailRouter = require("./routes/mail");
 
 const app = express();
 const server = require("http").createServer(app);
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 5000);
 const io = require("socket.io")(server, {
   cors: {
     origin: "*",
@@ -42,7 +41,6 @@ app.use(cookieParser());
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 app.use(express.static(path.join(__dirname, "../client", "build")));
 app.use(compression());
-// app.use(helmet());
 
 app.use("/api/users", usersRouter);
 app.use("/api/forums", forumRouter);
